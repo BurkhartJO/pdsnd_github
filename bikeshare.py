@@ -20,7 +20,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!\n')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    # Obtain user input for city (chicago, new york city, washington) - ensure that no errors will pop up for invalid entries
     print('Would you like to explore data for Chicago, New York City or Washington?')
     city = input('Enter city name: ').lower()
     
@@ -30,7 +30,7 @@ def get_filters():
         else:
             city = input('Invalid answer. Please try again: ')
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+    # Obtain user input for month (all, january, february, ..., june)
     print('\nWhich month are you interested in examining? To include all months, input "all".')
     month = input('Enter month name: ').lower()
     
@@ -40,7 +40,7 @@ def get_filters():
         else:
             month = input('Invalid answer. Please try again: ')
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # Obtain user input for day of week (all, monday, tuesday, ..., sunday) 
     print('\nWhich day of the week are you interested in examining? To include all days, input "all".')
     day = input('Enter day name: ').lower()
     
@@ -89,7 +89,8 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
     df['Start Time'] = pd.to_datetime(df['Start Time'])
-    # TO DO: display the most common month
+    
+    # Determine and display the most common month
     try:
         df['month'] = df['Start Time'].dt.month
         popular_month = df['month'].mode()[0]
@@ -97,7 +98,7 @@ def time_stats(df):
     except KeyError:
         print('Most Popular Month: Sorry! No data is available for your selection.\n')
         
-    # TO DO: display the most common day of week
+    # Determine and display the most common day of week
     try:
         df['day_of_week'] = df['Start Time'].dt.weekday_name
         popular_day = df['day_of_week'].mode()[0]
@@ -105,7 +106,7 @@ def time_stats(df):
     except KeyError:
         print('Most Popular Day: Sorry! No data is available for your selection.\n')
         
-    # TO DO: display the most common start hour
+    # Determine and display the most common start hour
     try:
         df['hour'] = df['Start Time'].dt.hour
         popular_hour = df['hour'].mode()[0]
@@ -123,21 +124,21 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
     
-    # TO DO: display most commonly used start station
+    # Determine and display the most commonly used start station 
     try:
         popular_start = df['Start Station'].mode()[0]
         print('Most Popular Start Station: ', popular_start)
     except KeyError:
         print('Most Popular Start Station: Sorry! No data is available for your selection.\n')
         
-    # TO DO: display most commonly used end station
+    # Determine and display the most commonly used end station 
     try:
         popular_end = df['End Station'].mode()[0]
         print('Most Popular End Station: ', popular_end)
     except KeyError:
         print('Most Popular End Station: Sorry! No data is available for your selection.\n')
         
-    # TO DO: display most frequent combination of start station and end station trip
+    # Determine and display the most frequest combination of start station and end station trip
     try:
         df['combo'] = df['Start Station'] + " to " + df['End Station']
         popular_combo = df['combo'].mode()[0]
@@ -155,14 +156,14 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
+    # Determine and display total travel time
     try:
         total_time = df['Trip Duration'].sum()
         print('Total Travel Time: ', total_time)
     except KeyError:
         print('Total Travel Time: Sorry! No data is available for your selection.\n')
         
-    # TO DO: display mean travel time
+    # Determine and display mean travel time 
     try:
         avg_time = df['Trip Duration'].mean()
         print('Average Travel Time: ', avg_time)
@@ -179,21 +180,21 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
+    # Determine and display counts of user types
     try:
         user_types = df['User Type'].value_counts()
         print('User Type Count:\n', user_types)
     except KeyError:
         print('User Type Count: Sorry! No data is available for your selection.\n')
 
-    # TO DO: Display counts of gender
+    # Determine and display counts of gender
     try:
         gender_types = df['Gender'].value_counts()
         print('\nUser Gender Counts:\n', gender_types)
     except KeyError:
         print('\nUser Gender Counts: Sorry! No data is available for your selection.\n')
         
-    # TO DO: Display earliest, most recent, and most common year of birth
+    # Determine and display earliest, most recent, and most common year of birth
     try:
         min_birth = df['Birth Year'].min()
         print("\nOldest User's Year of Birth: ", min_birth)
@@ -227,7 +228,7 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
         
-        # TO DO: Implement a function that displays raw data upon request by user
+        # Create a function that displays rows of raw data upon the user's request 
         print('Would you like to see a slice of the raw data? (Yes/No)')
         i = 0
         
