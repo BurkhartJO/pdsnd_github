@@ -13,12 +13,12 @@ day_list = ['all', 'sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'frid
 
 def get_filters():
     """
-    Asks user to specify a city, month, and day to analyze.
+    Requests user input to specify a city, month and day to analyze.
 
     Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+        city (str) - name of the city to analyze
+        month (str) - name of the month to filter by or "all" for no month filter
+        day (str) - name of the day of week to filter by or "all" for no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!\n')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
@@ -58,14 +58,14 @@ def get_filters():
 
 def load_data(city, month, day):
     """
-    Loads data for the specified city and filters by month and day if applicable.
+    Loads data for the specified city and filters by month and day of week, if applicable.
 
-    Args:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
+    Arguments:
+        city (str) - name of the city to analyze
+        month (str) - name of the month to filter by or "all" for no month filter
+        day (str) - name of the day of week to filter by or "all" for no day filter
     Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
+        df - Pandas DataFrame containing city data filtered by month and day of week
     """
     df = pd.read_csv(CITY_DATA[city])
     
