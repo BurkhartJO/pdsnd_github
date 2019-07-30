@@ -18,3 +18,4 @@ The script itself should utilize a series of functions which request user input.
 
 - [Python Language Reference](https://docs.python.org/2/reference/index.html)
 - [pandas Reference](https://pandas.pydata.org/pandas-docs/stable/reference/index.html)
+- [Markdown Reference](https://en.support.wordpress.com/markdown-quick-reference/)
